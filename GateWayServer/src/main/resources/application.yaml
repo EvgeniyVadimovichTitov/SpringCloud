@@ -1,0 +1,27 @@
+
+server:
+  port: 8765
+  servlet:
+    context-path: /plts
+eureka:
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:4433/eureka
+
+spring:
+  application:
+    name: GateWayServer
+  cloud:
+    gateway:
+      routes:
+        - id: homework03
+          uri: http://localhost:8080/
+          predicates:
+            - Path=/serviceA/**
+        - id: SpringDataJpaStart
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/serviceB/**

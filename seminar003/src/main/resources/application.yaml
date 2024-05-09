@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: homework03
+server:
+  port: 8080
+  servlet:
+    context-path: /plts
+eureka:
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:4433/eureka
